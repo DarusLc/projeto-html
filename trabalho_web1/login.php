@@ -21,7 +21,7 @@
                 </div>
                 <div class="texto">
                     <label for="senha" class="label">Senha</label>
-                    <input type="senha" name="senha">
+                    <input type="password" name="senha">
                 </div>
 
                 <div id="click">
