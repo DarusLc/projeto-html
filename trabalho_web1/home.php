@@ -19,7 +19,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AcademiaG5</title>
     <script src="https://kit.fontawesome.com/c71e590723.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="estilo_home.css">
+    <link rel="stylesheet" href="home.css">
 </head>
 <body>
     <header>
@@ -31,8 +31,18 @@
                 <li><a href="#">serviços</a></li>
                 <li><a href="#">aulas</a></li>
                 <li><a href="#">agenda</a></li>
-                <li><a href="#">perfil</a></li>
-                <li><a href="home.html">sair</a></li>
+
+                <li>
+                    <a href="#">perfil</a>
+                    <ul class="dropdown">
+                        <li><a href="#">perfil1</a>
+                        <li><a href="#">perfil2</a>
+                        <li><a href="#">perfil3</a>
+                    </ul>
+            
+                </li>
+
+                <li><a href="sair.php">sair</a></li>
                 <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
                 <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
                </ul> 

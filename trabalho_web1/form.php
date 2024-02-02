@@ -34,7 +34,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="form.css">
+    <link rel="stylesheet" href="form1.css">
     <title>Document</title>
 
 </head>
@@ -45,29 +45,29 @@
     </div>
     <div class="content">
         <h1>Formulário</h1>
-        <form action="form.php" method="POST">
+        <form id="form" action="form.php" method="POST">
             <div>
-                <input type="text" name="nome" placeholder="Digite seu nome" class="inputs">
+                <input type="text" name="nome" placeholder="Digite seu nome" class="inputs required" oninput="nameValidate()">
                 <span class="span-required"> Nome deve ter no mínimo 3 caracteres</span>
             </div>
             <div>
-                <input type="email" name="email" placeholder="Digite seu email" class="inputs">
+                <input type="email" name="email" placeholder="Digite seu email" class="inputs required" oninput="emailValidate()">
                 <span class="span-required"> Digite um email válido</span>
             </div>
             <div>
-                <input type="password" name="senha" placeholder="Senha" class="inputs">
+                <input type="password" name="senha" placeholder="Senha" class="inputs required" oninput="mainPasswordValidate()">
                 <span class="span-required"> Digite uma senha com no mínimo 8 caracteres</span>
             </div>
             <div>
-                <input type="number" name="idade" placeholder="Idade" class="inputs">
+                <input type="number" name="idade" placeholder="Idade" class="inputs required">
                 <span class="span-required"> Digite sua Idade</span>
             </div>
             <div>
-                <input type="number" name="peso" placeholder="Peso em Kg" class="inputs">
+                <input type="number" name="peso" placeholder="Peso em Kg" class="inputs required">
                 <span class="span-required"> Digite seu Peso</span>
             </div>
             <div>
-                <input type="number" name="altura" placeholder="Altura" class="inputs">
+                <input type="number" name="altura" placeholder="Altura" class="inputs required">
                 <span class="span-required"> Digite sua Altura</span>
             </div>
 
@@ -103,8 +103,70 @@
                     <label for="3">Moderada</label>
                 </div>
             </div>    
-                <button type="submit" name="submit">Enviar</button>
+                <button type="submit" name="submit" class="required">Enviar</button>
         </form>
     </div>
 </body>
+<script>
+    const form = document.getElementById('form');
+    const campos = document.querySelectorAll('.required');
+    const spans = document.querySelectorAll('.span-required');
+    const emailRegex = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+    //form.addEventListener('submit', (event) => 
+    //{
+    //    event.preventDefault();
+   //     nameValidate();
+   //     emailValidate();
+   //     mainPasswordValidate();
+  //      resetInput(form);
+   //     
+   // }
+   // );
+    
+
+
+    function nameValidate(){
+       if(campos[0].value.length < 3)
+       {
+            setError(0);
+       }
+       else
+       {
+            removeError(0)
+       }
+    }
+
+    function setError(index){
+        campos[index].style.border = '2px solid #e63636';
+        spans[index].style.display = 'block';
+    }
+
+    function removeError(index){
+        campos[index].style.border = '';
+        spans[index].style.display = 'none';
+    }
+
+    function emailValidate(){
+        if(!emailRegex.test(campos[1].value))
+        {
+            setError(1);
+        }
+        else
+        {
+            removeError(1)
+        }
+    }
+
+    function mainPasswordValidate(){
+        if(campos[2].value.length < 8)
+        {
+            setError(2);
+        }
+        else
+        {
+            removeError(2)
+        }
+    }
+    
+</script>
 </html>
